@@ -1,0 +1,47 @@
+    body {
+      background-color: #f8f9fa;
+    }
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+    .my-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .my-card:hover {
+      transform: scale(1.03);
+    }
+    .book-img {
+      height: 220px;
+      object-fit: cover;
+      width: 100%;
+    }
+    .book-title {
+      font-size: 1rem;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+    .book-author {
+      font-size: 0.9rem;
+      color: #555;
+    }
+  
