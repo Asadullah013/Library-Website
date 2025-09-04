@@ -21,9 +21,7 @@
     { query: "Quran: Arabic, English, Persian", label: "📖 The Holy Quran" },
     { query: "Atomic Habits James Clear", label: "📘 Atomic Habits" },
     { query: "To Kill a Mockingbird", label: "⚖️ To Kill a Mockingbird" },
-    { query: "The Alchemist Paulo Coelho", label: "🌍 The Alchemist" },
-    { query: "Rich Dad Poor Dad", label: "💰 Rich Dad Poor Dad" },
-    { query: "Sapiens Yuval Noah Harari", label: "📖 Sapiens" }
+    { query: "The Alchemist Paulo Coelho", label: "🌍 The Alchemist" }
   ];
 
   // Load Featured Books
@@ -73,4 +71,5 @@
 
   // On page load
   loadFeaturedBooks();
+
 
