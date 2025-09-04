@@ -19,9 +19,7 @@
    // Featured Queries (custom selection - 8 books)
   const featuredQueries = [
     { query: "Quran: Arabic, English, Persian", label: "📖 The Holy Quran" },
-    { query: "Harry Potter and the Philosopher's Stone", label: "✨ Harry Potter" },
     { query: "Atomic Habits James Clear", label: "📘 Atomic Habits" },
-    { query: "The 7 Habits of Highly Effective People", label: "🧭 7 Habits" },
     { query: "To Kill a Mockingbird", label: "⚖️ To Kill a Mockingbird" },
     { query: "The Alchemist Paulo Coelho", label: "🌍 The Alchemist" },
     { query: "Rich Dad Poor Dad", label: "💰 Rich Dad Poor Dad" },
@@ -75,3 +73,4 @@
 
   // On page load
   loadFeaturedBooks();
+
