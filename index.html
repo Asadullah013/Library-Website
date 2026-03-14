@@ -3,46 +3,157 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Library Website</title>
+  <title>Magsi Library - Your Digital Reading Companion</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-light bg-light shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
     <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="#">📚 Magsi Library</a>
-      <form class="d-flex" onsubmit="return false">
-        <input id="searchBox" class="form-control me-2" type="search" placeholder="Search for books...">
-        <button id="searchBtn" class="btn btn-primary" type="button">Search</button>
-      </form>
+      <a class="navbar-brand fw-bold" href="#">
+        <i class="bi bi-book-half text-primary me-2"></i>
+        Magsi Library
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSearch">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSearch">
+        <form class="d-flex ms-auto" onsubmit="return false" id="searchForm">
+          <div class="input-group">
+            <input id="searchBox" class="form-control" type="search" placeholder="Search for books by title, author, or ISBN..." aria-label="Search">
+            <button id="searchBtn" class="btn btn-primary" type="button">
+              <i class="bi bi-search"></i> Search
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
   <section class="hero">
-    <h1>Welcome to Magsi Library</h1>
-    <p>"A room without books is like a body without a soul." – Cicero</p>
+    <div class="hero-content">
+      <h1>Welcome to Magsi Library</h1>
+      <p class="lead">"A room without books is like a body without a soul." – Cicero</p>
+      <div class="hero-stats mt-4">
+        <span class="badge bg-primary me-2 p-3"><i class="bi bi-journal-bookmark-fill"></i> 50M+ Books</span>
+        <span class="badge bg-success me-2 p-3"><i class="bi bi-people-fill"></i> 10K+ Daily Readers</span>
+        <span class="badge bg-info p-3"><i class="bi bi-globe"></i> 100+ Languages</span>
+      </div>
+    </div>
   </section>
 
-  <!-- Search Results -->
-  <div class="container my-5">
-    <h2 class="mb-4">🔎 Search Results</h2>
-    <div id="bookList" class="row g-3"></div>
-  </div>
+  <!-- Search Results Section -->
+  <section class="container my-5" id="searchSection" style="display: none;">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2><i class="bi bi-search-heart text-primary me-2"></i>Search Results</h2>
+      <span id="resultCount" class="badge bg-secondary p-2"></span>
+    </div>
+    <div id="bookList" class="row g-4"></div>
+    <div id="loadMoreContainer" class="text-center mt-4" style="display: none;">
+      <button id="loadMoreBtn" class="btn btn-outline-primary">
+        <i class="bi bi-arrow-down-circle"></i> Load More Books
+      </button>
+    </div>
+  </section>
 
-  <!-- Featured Books -->
-  <div class="container my-5">
-    <h2 class="mb-4">📖 Featured Books</h2>
-    <div id="featuredBooks" class="row g-3"></div>
-  </div>
+  <!-- Featured Books Section -->
+  <section class="container my-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2><i class="bi bi-star-fill text-warning me-2"></i>Featured Books</h2>
+      <button id="refreshFeatured" class="btn btn-outline-primary btn-sm">
+        <i class="bi bi-arrow-repeat"></i> Refresh
+      </button>
+    </div>
+    <div id="featuredBooks" class="row g-4"></div>
+  </section>
 
+  <!-- Categories Section -->
+  <section class="container my-5">
+    <h2 class="mb-4"><i class="bi bi-grid-3x3-gap-fill text-primary me-2"></i>Browse by Category</h2>
+    <div class="row g-3">
+      <div class="col-md-3 col-6">
+        <button class="category-btn active" data-category="fiction">📚 Fiction</button>
+      </div>
+      <div class="col-md-3 col-6">
+        <button class="category-btn" data-category="science">🔬 Science</button>
+      </div>
+      <div class="col-md-3 col-6">
+        <button class="category-btn" data-category="history">📜 History</button>
+      </div>
+      <div class="col-md-3 col-6">
+        <button class="category-btn" data-category="philosophy">🤔 Philosophy</button>
+      </div>
+      <div class="col-md-3 col-6">
+        <button class="category-btn" data-category="poetry">📝 Poetry</button>
+      </div>
+      <div class="col-md-3 col-6">
+        <button class="category-btn" data-category="biography">📖 Biography</button>
+      </div>
+      <div class="col-md-3 col-6">
+        <button class="category-btn" data-category="technology">💻 Technology</button>
+      </div>
+      <div class="col-md-3 col-6">
+        <button class="category-btn" data-category="art">🎨 Art</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-5 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5><i class="bi bi-book-half text-primary me-2"></i>Magsi Library</h5>
+          <p class="text-secondary">Your gateway to millions of free books and knowledge. Powered by open source and community love.</p>
+          <div class="social-links">
+            <a href="#" class="text-white me-3"><i class="bi bi-twitter fs-5"></i></a>
+            <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-5"></i></a>
+            <a href="#" class="text-white me-3"><i class="bi bi-github fs-5"></i></a>
+          </div>
+        </div>
+        <div class="col-md-2 mb-4">
+          <h6>Quick Links</h6>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-secondary text-decoration-none">About Us</a></li>
+            <li><a href="#" class="text-secondary text-decoration-none">Contact</a></li>
+            <li><a href="#" class="text-secondary text-decoration-none">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h6>Resources</h6>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-secondary text-decoration-none">Open Library API</a></li>
+            <li><a href="#" class="text-secondary text-decoration-none">Project Gutenberg</a></li>
+            <li><a href="#" class="text-secondary text-decoration-none">Internet Archive</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h6>Newsletter</h6>
+          <p class="text-secondary small">Get book recommendations weekly</p>
+          <div class="input-group">
+            <input type="email" class="form-control form-control-sm" placeholder="Your email">
+            <button class="btn btn-primary btn-sm">Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <hr class="border-secondary">
+      <div class="text-center text-secondary small">
+        <p class="mb-0">© 2024 Magsi Library. All books are from public domain and open access sources.</p>
+        <p class="mb-0">Data provided by <a href="https://openlibrary.org" target="_blank" class="text-info">Open Library</a></p>
+      </div>
+    </div>
+  </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
-
 </body>
 </html>
